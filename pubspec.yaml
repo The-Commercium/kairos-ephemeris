@@ -1,0 +1,17 @@
+name: kairos_ephemeris
+description: Pure-Dart, offline positions of the Sun, Moon and planets, house cusps and moon phases, checked against the Swiss Ephemeris. No native code, no data files.
+version: 0.1.0
+repository: https://github.com/The-Commercium/kairos-ephemeris
+issue_tracker: https://github.com/The-Commercium/kairos-ephemeris/issues
+topics:
+  - astronomy
+  - ephemeris
+  - planets
+  - moon
+
+environment:
+  sdk: ^3.0.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.25.0
