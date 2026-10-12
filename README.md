@@ -14,7 +14,8 @@ Most apps that need planetary positions use the Swiss Ephemeris. It is excellent
 
 ```yaml
 dependencies:
-  kairos_ephemeris: ^0.1.0
+  kairos_ephemeris:
+    git: https://github.com/The-Commercium/kairos-ephemeris
 ```
 
 ```dart
