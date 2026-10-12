@@ -8,7 +8,7 @@ We wrote it for [Kairos](https://kai-ros.life), our app that draws the sky of an
 
 ## Why it exists
 
-Most apps that need planetary positions use the Swiss Ephemeris. It is excellent, but it is a C library: in a Flutter app it comes in through FFI on each native platform and WebAssembly on the web. It is also dual licensed: AGPL, which asks the whole app to be AGPL, or a paid professional licence from Astrodienst. We wanted a small engine in plain Dart with a permissive licence, and a test that tells us how far it is from the reference.
+Most apps that need planetary positions use the Swiss Ephemeris. It is excellent, but it is a C library: in a Flutter app it comes in through FFI on each native platform and WebAssembly on the web. It is also dual licensed: AGPL, which asks the whole app to be released under the AGPL or a compatible licence, or a paid professional licence from Astrodienst. We wanted a small engine in plain Dart with a permissive licence, and a test that tells us how far it is from the reference.
 
 ## Use
 

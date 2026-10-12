@@ -21,7 +21,7 @@ void main() {
   test('longitudes, latitudes and speeds match the Swiss Ephemeris', () {
     final worst = {for (final b in Body.values) b: 0.0};
     final worstLat = {for (final b in Body.values) b: 0.0};
-    var speedSign = 0;
+    var retrogradeMismatches = 0;
     var moonRawTo2025 = 0.0, moonRawAfter = 0.0;
     for (final c in cases) {
       final at = Instant.utc(fromJd((c['jd_ut'] as num).toDouble()));
@@ -46,7 +46,7 @@ void main() {
         final rs = (r[2] as num).toDouble();
         // A station is a station: the true node turns at a few thousandths of a degree a day.
         final still = p.body == Body.trueNode ? 0.01 : 0.002;
-        if (rs.abs() > still && (rs < 0) != p.retrograde) speedSign++;
+        if (rs.abs() > still && (rs < 0) != p.retrograde) retrogradeMismatches++;
       }
     }
     for (final b in Body.values) {
@@ -56,11 +56,11 @@ void main() {
     // ignore: avoid_print
     print('moon raw lon max: to 2025 ${moonRawTo2025.toStringAsFixed(3)}\'  after 2025 ${moonRawAfter.toStringAsFixed(3)}\'');
     // ignore: avoid_print
-    print('retrograde flag mismatches: $speedSign');
+    print('retrograde flag mismatches: $retrogradeMismatches');
     for (final b in Body.values) {
       expect(worst[b]!, lessThan(limits[b]!), reason: b.name);
     }
-    expect(speedSign, 0);
+    expect(retrogradeMismatches, 0);
   });
 
   test('houses match the Swiss Ephemeris', () {
